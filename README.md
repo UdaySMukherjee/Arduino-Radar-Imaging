@@ -20,8 +20,8 @@ This Arduino project implements an ultrasonic radar using an ultrasonic sensor a
 
 ## Installation and Usage
 1. Connect the HC-SR04 ultrasonic sensor to the Arduino board as shown in the circuit diagram.
-2. Upload the Arduino sketch (`ultrasonic_radar.ino`) to the Arduino board using the Arduino IDE.
-3. Open the Processing sketch (`radar_visualization.pde`) in the Processing IDE.
+2. Upload the Arduino sketch (`radar.ino`) to the Arduino board using the Arduino IDE.
+3. Open the Processing sketch (`radar-display.pde`) in the Processing IDE.
 4. Make sure the COM port for the Arduino board is correctly set in the Processing sketch (change `COM13` to the appropriate port).
 5. Run the Processing sketch to visualize the ultrasonic radar in action.
 
