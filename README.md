@@ -76,10 +76,10 @@ For a more interactive experience, you can modify the code to add additional fea
 Contributions to the Arduino Radar Visualization project are welcome and encouraged! If you find any issues or have ideas for improvements, feel free to open a GitHub issue or submit a pull request.
 Please ensure that you adhere to the project's code of conduct when contributing.
 
-Contact
+## Contact
 If you have any questions, suggestions, or feedback, please don't hesitate to reach out:
 
-Name: Uday Sankar Mukherjee
+Name: Uday Sankar Mukherjee <br>
 Email: udaysankar2003@gmail.com
 
 We appreciate your interest in the Arduino Radar Visualization project! Your feedback and contributions are valuable in making this project better.
