@@ -17,7 +17,7 @@ The radar visualization displays the detected objects as points on a circular gr
 - Processing IDE
 
 ## Circuit Diagram
-![Circuit Diagram](circuit_diagram.png)
+![Circuit Diagram](https://i.imgur.com/ygg464g.png)
 
 ## Features
 - Real-time visualization of ultrasonic sensor data on a computer screen.
