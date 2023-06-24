@@ -33,8 +33,8 @@ To set up the Arduino radar visualization project, follow these steps:
 1. Clone the repository to your local machine:
 
    ```shell
-   $ git clone https://github.com/your-username/arduino-radar-visualization.git
-   $ cd arduino-radar-visualization
+   git clone https://github.com/UdaySMukherjee/Arduino-Radar-Imaging.git
+   cd arduino-radar-visualization
    ```
    
 2. Connect the Arduino board to your computer via USB.
