@@ -3,7 +3,7 @@
 This project provides a 2D visualization of radar data captured by ultrasonic sensors connected to an Arduino board. The radar sweeps in a 180-degree arc and measures the distances to nearby objects. The captured data is then visualized in real-time on a computer screen using the Processing programming language.
 The radar visualization displays the detected objects as points on a circular grid, representing the distance and angle of each object. The closer an object is to the center, the shorter the distance, while the angle represents the position relative to the radar's orientation.
 
-![Ultrasonic Radar](https://i.imgur.com/ygg464g.png)
+![Ultrasonic Radar](https://i.imgur.com/CsO7PVj.jpg)
 
 ## Hardware Requirements
 - Arduino board (e.g., Arduino Uno)
