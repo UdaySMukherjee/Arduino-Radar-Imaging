@@ -1,49 +1,61 @@
 // Includes the Servo library
 #include <Servo.h>
 
-// Defines Trig and Echo pins of the Ultrasonic Sensor
-const int trigPin = 2;
-const int echoPin = 3;
+// Defines Trig and Echo pins of the Ultrasonic Sensors
+const int trigPin1 = 2;
+const int echoPin1 = 3;
+const int trigPin2 = 5;
+const int echoPin2 = 6;
 
-// Variables for the duration and the distance
-long duration;
-int distance;
+// Variables for the durations and distances
+long duration1, duration2;
+int distance1, distance2;
 
-Servo myServo; // Creates a servo object for controlling the servo motor
+Servo servo; // Creates a servo object for controlling the servo
 
 void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+  pinMode(trigPin1, OUTPUT); // Sets the trigPin1 as an Output
+  pinMode(echoPin1, INPUT); // Sets the echoPin1 as an Input
+  pinMode(trigPin2, OUTPUT); // Sets the trigPin2 as an Output
+  pinMode(echoPin2, INPUT); // Sets the echoPin2 as an Input
+  
   Serial.begin(9600);
-  myServo.attach(4); // Defines on which pin the servo motor is attached
+  
+  servo.attach(9); // Defines on which pin the servo is attached
 }
 
 void loop() {
-  // Rotates the servo motor from 0 to 180 degrees
+  // Rotates the servo from 0 to 180 degrees
   for (int i = 0; i <= 180; i++) {
-    myServo.write(i);
+    servo.write(i);
     delay(30);
-    distance = calculateDistance(); // Calls a function for calculating the distance measured by the Ultrasonic sensor for each degree
+    distance1 = calculateDistance(trigPin1, echoPin1); // Calls a function for calculating the distance measured by ultrasonic sensor 1
+    distance2 = calculateDistance(trigPin2, echoPin2); // Calls a function for calculating the distance measured by ultrasonic sensor 2
     Serial.print(i); // Sends the current degree to the Serial Port
-    Serial.print(","); // Sends additional character right next to the previous value needed later in the Processing IDE for indexing
-    Serial.print(distance); // Sends the distance value to the Serial Port
-    Serial.print("."); // Sends additional character right next to the previous value needed later in the Processing IDE for indexing
+    Serial.print(",");
+    Serial.print(distance1); // Sends the distance measured by ultrasonic sensor 1 to the Serial Port
+    Serial.print(",");
+    Serial.print(distance2); // Sends the distance measured by ultrasonic sensor 2 to the Serial Port
+    Serial.println(".");
   }
 
   // Repeats the previous lines from 180 to 0 degrees
   for (int i = 180; i > 0; i--) {
-    myServo.write(i);
+    servo.write(i);
     delay(30);
-    distance = calculateDistance();
+    distance1 = calculateDistance(trigPin1, echoPin1);
+    distance2 = calculateDistance(trigPin2, echoPin2);
     Serial.print(i);
     Serial.print(",");
-    Serial.print(distance);
-    Serial.print(".");
+    Serial.print(distance1);
+    Serial.print(",");
+    Serial.print(distance2);
+    Serial.println(".");
   }
 }
 
-// Function for calculating the distance measured by the Ultrasonic sensor
-int calculateDistance() {
+// Function for calculating the distance measured by an Ultrasonic sensor
+int calculateDistance(int trigPin, int echoPin) {
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
 
@@ -52,8 +64,8 @@ int calculateDistance() {
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
-  duration = pulseIn(echoPin, HIGH); // Reads the echoPin, returns the sound wave travel time in microseconds
-  distance = duration * 0.034 / 2;
+  long duration = pulseIn(echoPin, HIGH); // Reads the echoPin, returns the sound wave travel time in microseconds
+  int distance = duration * 0.034 / 2;
 
   return distance;
 }
